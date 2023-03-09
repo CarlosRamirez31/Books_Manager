@@ -20,6 +20,7 @@ CREATE TABLE Books(
 BookId INT NOT NULL,
 Title VARCHAR(150) NOT NULL,
 BookDescription varchar(250) NOT NULL,
+AuthorId INT NOT NULL,
 Price INT NOT NULL,
 PublicationDate DATETIME NOT NULL,
 CreateBy VARCHAR(80) NOT NULL,
