@@ -1,4 +1,5 @@
 ﻿using Application;
+using Persistence;
 
 namespace Api
 {
@@ -14,6 +15,8 @@ namespace Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddApplicationExtensions();
+            services.AddPersistenceExtensions(_configuration);
+            services.AddSharedExtensions();
             services.AddControllers();
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
