@@ -17,12 +17,15 @@
 
   <ItemGroup>
     <Folder Include="Dtos\" />
-    <Folder Include="Feautres\Author\Commands\DeleteAuthorCoomand\" />
-    <Folder Include="Feautres\Author\Commands\UpdateAuthorCommand\" />
-    <Folder Include="Feautres\Author\Queries\GetAllAuthor\" />
-    <Folder Include="Feautres\Author\Queries\GetAuthorById\" />
+    <Folder Include="Feautres\Authors\Commands\DeleteAuthorCoomand\" />
+    <Folder Include="Feautres\Authors\Commands\UpdateAuthorCommand\" />
+    <Folder Include="Feautres\Authors\Queries\GetAllAuthor\" />
+    <Folder Include="Feautres\Authors\Queries\GetAuthorById\" />
     <Folder Include="Filters\" />
-    <Folder Include="Mappings\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
 </Project>

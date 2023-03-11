@@ -20,6 +20,7 @@ namespace Api
             services.AddPersistenceExtensions(_configuration);
             services.AddSharedExtensions();
             services.AddControllers();
+            services.AddVersioningExtension();
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
         }
