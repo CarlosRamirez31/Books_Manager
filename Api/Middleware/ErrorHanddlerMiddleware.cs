@@ -4,20 +4,20 @@ using System.Text.Json;
 
 namespace Api.Middleware
 {
-    public class ErrorHandlerMiddleware
+    public class ErrorHanddlerMiddleware
     {
         private readonly RequestDelegate _next;
 
-        public ErrorHandlerMiddleware(RequestDelegate next)
+        public ErrorHanddlerMiddleware(RequestDelegate next)
         {
             _next = next;
         }
 
-        public async void Invoke(HttpContext context)
+        public async Task Invoke(HttpContext context)
         {
             try
             {
-                _next(context);
+                await _next(context);
             }
             catch (Exception error)
             {
