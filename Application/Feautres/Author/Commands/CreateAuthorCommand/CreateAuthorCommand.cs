@@ -5,8 +5,8 @@ namespace Application.Feautres.Author.Commands.CreateAuthorCommand
 {
     public class CreateAuthorCommand : IRequest<Response<int>>
     {
-        public string FirstName { get; set; } = null!;
-        public string LastName { get; set; } = null!;
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
         public int? PhoneNumber { get; set; }
         public string? Country { get; set; }
         public string? Address { get; set; }

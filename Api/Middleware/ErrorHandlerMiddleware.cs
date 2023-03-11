@@ -1,5 +1,6 @@
 ﻿using Application.Wrappers;
 using System.Net;
+using System.Text.Json;
 
 namespace Api.Middleware
 {
@@ -12,7 +13,7 @@ namespace Api.Middleware
             _next = next;
         }
 
-        public void Invoke(HttpContext context)
+        public async void Invoke(HttpContext context)
         {
             try
             {
@@ -40,6 +41,9 @@ namespace Api.Middleware
                         response.StatusCode = (int)HttpStatusCode.InternalServerError;
                         break;
                 }
+
+                var result = JsonSerializer.Serialize(responseModel);
+                await response.WriteAsync(result);
             }
         }
     }

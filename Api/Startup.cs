@@ -1,5 +1,7 @@
-﻿using Application;
+﻿using Api.Extensions;
+using Application;
 using Persistence;
+using Shared;
 
 namespace Api
 {
@@ -37,6 +39,8 @@ namespace Api
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseErrorHandlerMiddleware();
 
             app.UseEndpoints(endpoints =>
             {
