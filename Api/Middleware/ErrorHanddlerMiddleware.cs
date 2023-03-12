@@ -4,11 +4,11 @@ using System.Text.Json;
 
 namespace Api.Middleware
 {
-    public class ErrorHanddlerMiddleware
+    public class ErrorHandlerMiddleware
     {
         private readonly RequestDelegate _next;
 
-        public ErrorHanddlerMiddleware(RequestDelegate next)
+        public ErrorHandlerMiddleware(RequestDelegate next)
         {
             _next = next;
         }
@@ -27,14 +27,14 @@ namespace Api.Middleware
                 
                 switch (error)
                 {
-                    case Application.Exceptions.ApiException e:
+                    case Application.Exceptions.ApiException:
                         response.StatusCode = (int)HttpStatusCode.BadRequest;
                         break;
                     case Application.Exceptions.ValidationException e:
                         response.StatusCode = (int)HttpStatusCode.BadRequest;
-                        responseModel.Message = e.Message;
+                        responseModel.Errors = e.Errors;
                         break;
-                    case KeyNotFoundException e:
+                    case KeyNotFoundException:
                         response.StatusCode = (int)HttpStatusCode.NotFound;
                         break;
                     default:

@@ -32,7 +32,7 @@ namespace Application.Feautres.Authors.Commands.CreateAuthorCommand
             var author = _mapper.Map<Author>(request);
             var data = await _repositoryAsync.AddAsync(author);
 
-            return new Response<int>(data.Id);
+            return new Response<int>(data.AuthorId);
         }
     }
 }

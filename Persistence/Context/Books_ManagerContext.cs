@@ -17,7 +17,7 @@ namespace Persistence.Context
             _dateTime = dateTime;
         }
 
-        public virtual DbSet<Author> Authors { get; set; } = null!;
+        public virtual DbSet<Author> Authors { get; set; }
         public virtual DbSet<AuthorsBook> AuthorsBooks { get; set; } = null!;
         public virtual DbSet<Book> Books { get; set; } = null!;
         public virtual DbSet<Comment> Comments { get; set; } = null!;
