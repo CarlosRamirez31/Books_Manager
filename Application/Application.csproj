@@ -17,8 +17,6 @@
 
   <ItemGroup>
     <Folder Include="Dtos\" />
-    <Folder Include="Feautres\Authors\Commands\DeleteAuthorCoomand\" />
-    <Folder Include="Feautres\Authors\Commands\UpdateAuthorCommand\" />
     <Folder Include="Feautres\Authors\Queries\GetAllAuthor\" />
     <Folder Include="Feautres\Authors\Queries\GetAuthorById\" />
     <Folder Include="Filters\" />
