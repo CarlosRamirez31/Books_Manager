@@ -56,7 +56,7 @@ LastModifiedBy VARCHAR(80) NULL,
 LastModified DATETIME NULL,
 PRIMARY KEY (CommentId)
 );
-b
+
 ALTER TABLE Photographs
 ADD CONSTRAINT PK_Photographs FOREIGN KEY (AuthorId) REFERENCES Authors (AuthorId) ON DELETE CASCADE;
 
