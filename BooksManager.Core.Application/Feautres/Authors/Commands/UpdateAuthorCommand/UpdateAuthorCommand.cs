@@ -1,8 +1,6 @@
-﻿using Application.Interfaces;
-using Application.Wrappers;
+﻿using Application.Wrappers;
 using AutoMapper;
 using BooksManager.Core.Application.Interfaces;
-using Domain.Entities;
 using MediatR;
 
 namespace Application.Feautres.Authors.Commands.UpdateAuthorCommand

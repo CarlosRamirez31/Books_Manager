@@ -1,6 +1,7 @@
 ﻿using Application.Feautres.Authors.Commands.CreateAuthorCommand;
 using Application.Feautres.Authors.Commands.DeleteAuthorCoomand;
 using Application.Feautres.Authors.Commands.UpdateAuthorCommand;
+using BooksManager.Core.Application.Feautres.Authors.Queries.GetAuthorById;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers.v1
@@ -8,7 +9,13 @@ namespace Api.Controllers.v1
     [ApiVersion("1.0")]
     public class AuthorController : BaseApiController
     {
-        [HttpPost]
+        [HttpGet("{id}")]
+        public async Task<ActionResult> GetById(int id)
+        {
+            return Ok(await Mediator.Send(new GetAuthorByIdQuery() { AuthorId = id}));
+        }
+
+        [HttpPost("Register")]
         public async Task<ActionResult> Register(CreateAuthorCommand command)
         {
             return Ok(await Mediator.Send(command));
@@ -21,7 +28,7 @@ namespace Api.Controllers.v1
         }
 
 
-        [HttpDelete("Delete/{id:int}")]
+        [HttpDelete("Delete/{id}")]
         public async Task<ActionResult> Delete(int id)
         {
             return Ok(await Mediator.Send(new DeleteAuthorCommand() { AuthorId = id }));

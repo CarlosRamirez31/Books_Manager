@@ -1,7 +1,6 @@
 ﻿using Application.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Context;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Persistence.Repository
 {
@@ -25,7 +24,7 @@ namespace Persistence.Repository
 
         public async Task<T> AddAsync(T entity)
         {
-            await _context.AddAsync(entity);
+            await _context.Set<T>().AddAsync(entity);
             await _context.SaveChangesAsync();
             return entity;
         }
@@ -33,7 +32,7 @@ namespace Persistence.Repository
         public async Task UpdateAsync(int id, T entity)
         {
             var entry = await _context.Set<T>().FindAsync(id);
-            _context.Entry(entry).CurrentValues.SetValues(entity);
+            _context.Entry(entry!).CurrentValues.SetValues(entity);
             await _context.SaveChangesAsync();
         }
 
