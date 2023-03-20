@@ -17,9 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Application\BooksManager.Core.Application.csproj" />
-    <ProjectReference Include="..\Persistence\BooksManager.Infrastructure.Persistece.csproj" />
-    <ProjectReference Include="..\Shared\BooksManager.Infrastructure.Shared.csproj" />
+    <ProjectReference Include="..\BooksManager.Core.Application\BooksManager.Core.Application.csproj" />
+    <ProjectReference Include="..\BooksManager.Infrastructure.Persistece\BooksManager.Infrastructure.Persistece.csproj" />
+    <ProjectReference Include="..\BooksManager.Infrastructure.Shared\BooksManager.Infrastructure.Shared.csproj" />
   </ItemGroup>
 
 </Project>

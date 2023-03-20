@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Domain\BooksManager.Core.Domain.csproj" />
+    <ProjectReference Include="..\BooksManager.Core.Domain\BooksManager.Core.Domain.csproj" />
   </ItemGroup>
 
 </Project>

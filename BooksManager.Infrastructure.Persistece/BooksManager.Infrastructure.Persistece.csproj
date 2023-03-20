@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Application\BooksManager.Core.Application.csproj" />
-    <ProjectReference Include="..\Domain\BooksManager.Core.Domain.csproj" />
+    <ProjectReference Include="..\BooksManager.Core.Application\BooksManager.Core.Application.csproj" />
+    <ProjectReference Include="..\BooksManager.Core.Domain\BooksManager.Core.Domain.csproj" />
   </ItemGroup>
 
 </Project>
