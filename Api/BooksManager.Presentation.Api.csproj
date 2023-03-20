@@ -18,8 +18,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Application\BooksManager.Core.Application.csproj" />
-    <ProjectReference Include="..\Persistence\Persistence.csproj" />
-    <ProjectReference Include="..\Shared\Shared.csproj" />
+    <ProjectReference Include="..\Persistence\BooksManager.Infrastructure.Persistece.csproj" />
+    <ProjectReference Include="..\Shared\BooksManager.Infrastructure.Shared.csproj" />
   </ItemGroup>
 
 </Project>

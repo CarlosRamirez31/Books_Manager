@@ -13,11 +13,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksManager.Core.Application", "Application\BooksManager.Core.Application.csproj", "{28A6BB1F-3380-43E8-88B4-CB11898C34B4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Persistence\Persistence.csproj", "{B7DA26CC-4476-48C8-A72A-15C4B1F6CA46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksManager.Infrastructure.Persistece", "Persistence\BooksManager.Infrastructure.Persistece.csproj", "{B7DA26CC-4476-48C8-A72A-15C4B1F6CA46}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{53C6CE24-28E1-488E-AA75-6F679FD9A1E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksManager.Infrastructure.Shared", "Shared\BooksManager.Infrastructure.Shared.csproj", "{53C6CE24-28E1-488E-AA75-6F679FD9A1E5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{001CEC40-15C1-4B56-A02C-F84971072514}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksManager.Presentation.Api", "Api\BooksManager.Presentation.Api.csproj", "{001CEC40-15C1-4B56-A02C-F84971072514}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksManager.Core.Domain", "Domain\BooksManager.Core.Domain.csproj", "{B392696B-63D4-4D3E-89B1-E1CE48DD0EE9}"
 EndProject
