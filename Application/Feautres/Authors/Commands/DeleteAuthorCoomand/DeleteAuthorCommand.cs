@@ -1,6 +1,7 @@
 ﻿using Application.Exceptions;
 using Application.Interfaces;
 using Application.Wrappers;
+using BooksManager.Core.Application.Interfaces;
 using Domain.Entities;
 using MediatR;
 
@@ -13,26 +14,21 @@ namespace Application.Feautres.Authors.Commands.DeleteAuthorCoomand
 
     public class DeleteAuthorCommandHandler : IRequestHandler<DeleteAuthorCommand, Response<int>>
     {
-        private readonly IRepositoryAsync<Author> _repositoryAsync;
+        private readonly IAuthorRepository _authorRepository;
 
-        public DeleteAuthorCommandHandler(IRepositoryAsync<Author> repositoryAsync)
+        public DeleteAuthorCommandHandler(IAuthorRepository authorRepository)
         {
-            _repositoryAsync = repositoryAsync;
+            _authorRepository = authorRepository;
         }
 
         public async Task<Response<int>> Handle(DeleteAuthorCommand request, CancellationToken cancellationToken)
         {
-            var author = await _repositoryAsync.GetByIdAsync(request.AuthorId);
+            var author = await _authorRepository.GetByIdAsync(request.AuthorId);
 
-            if(author is null)
-            {
-                throw new KeyNotFoundException("No se encuentran registro");
-            }
-            else
-            {
-                await _repositoryAsync.DeleteAsync(author);
-                return new Response<int>(author.AuthorId);
-            }
+            if (author is null) throw new KeyNotFoundException("No se encuentran registro");
+
+            await _authorRepository.DeleteAsync(author);
+            return new Response<int>(author.AuthorId);
         }
     }
 }

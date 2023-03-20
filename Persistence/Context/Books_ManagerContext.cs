@@ -8,13 +8,10 @@ namespace Persistence.Context
 {
     public partial class Books_ManagerContext : DbContext
     {
-        private readonly IDateTimeService _dateTime;
 
-        public Books_ManagerContext(DbContextOptions<Books_ManagerContext> options, IDateTimeService dateTime)
+        public Books_ManagerContext(DbContextOptions<Books_ManagerContext> options)
             : base(options)
         {
-            ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
-            _dateTime = dateTime;
         }
 
         public virtual DbSet<Author> Authors { get; set; } = null!;
@@ -30,10 +27,10 @@ namespace Persistence.Context
                 switch (entry.State)
                 {
                     case EntityState.Added:
-                        entry.Entity.Created = _dateTime.NowUtc;
+                        entry.Entity.Created = DateTime.Now;
                         break;
                     case EntityState.Modified:
-                        entry.Entity.LastModified = _dateTime.NowUtc;
+                        entry.Entity.LastModified = DateTime.Now;
                         break;
                 }
             }

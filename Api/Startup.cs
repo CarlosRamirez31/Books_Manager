@@ -1,7 +1,6 @@
 ﻿using Api.Extensions;
 using Application;
 using Persistence;
-using Shared;
 
 namespace Api
 {
@@ -18,7 +17,6 @@ namespace Api
         {
             services.AddApplicationExtensions();
             services.AddPersistenceExtensions(_configuration);
-            services.AddSharedExtensions();
             services.AddControllers();
             services.AddVersioningExtension();
             services.AddEndpointsApiExplorer();

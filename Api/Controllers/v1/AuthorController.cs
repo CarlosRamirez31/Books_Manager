@@ -14,12 +14,9 @@ namespace Api.Controllers.v1
             return Ok(await Mediator.Send(command));
         }
 
-        [HttpPut("Update/{id:int}")]
-        public async Task<ActionResult> Update(int id, UpdateAuthorCommand command)
+        [HttpPut("Update")]
+        public async Task<ActionResult> Update(UpdateAuthorCommand command)
         {
-            if (id != command.AuthorId)
-                return BadRequest();
-
             return Ok(await Mediator.Send(command));
         }
 

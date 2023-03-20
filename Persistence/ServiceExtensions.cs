@@ -1,4 +1,5 @@
 ﻿using Application.Interfaces;
+using BooksManager.Core.Application.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,7 +21,8 @@ namespace Persistence
                         x => x.MigrationsAssembly(assembly));
             });
 
-            services.AddTransient(typeof(IRepositoryAsync<>), typeof(RepositoryAsync<>));
+            services.AddTransient(typeof(IGeneryRepository<>), typeof(GeneryRepository<>));
+            services.AddTransient<IAuthorRepository, AuthorRepository>();
 
             return services;
         }

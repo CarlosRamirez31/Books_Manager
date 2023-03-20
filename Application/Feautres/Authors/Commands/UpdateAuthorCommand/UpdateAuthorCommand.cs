@@ -1,6 +1,7 @@
 ﻿using Application.Interfaces;
 using Application.Wrappers;
 using AutoMapper;
+using BooksManager.Core.Application.Interfaces;
 using Domain.Entities;
 using MediatR;
 
@@ -19,35 +20,25 @@ namespace Application.Feautres.Authors.Commands.UpdateAuthorCommand
 
     public class UpdateAuthorCommandHandler : IRequestHandler<UpdateAuthorCommand, Response<int>>
     {
-        private readonly IRepositoryAsync<Author> _repositoryAsync;
+        private readonly IAuthorRepository _authorRepository;
         private readonly IMapper _mapper;
 
-        public UpdateAuthorCommandHandler(IRepositoryAsync<Author> repositoryAsync, IMapper mapper)
+        public UpdateAuthorCommandHandler(IAuthorRepository authorRepository, IMapper mapper)
         {
-            _repositoryAsync = repositoryAsync;
+            _authorRepository = authorRepository;
             _mapper = mapper;
         }
 
         public async Task<Response<int>> Handle(UpdateAuthorCommand request, CancellationToken cancellationToken)
         {
-            var author = await _repositoryAsync.GetByIdAsync(request.AuthorId);
-            
-            if(author is null)
-            {
-                throw new KeyNotFoundException("No se encuentra registro");
-            }
-            else
-            {
-                author.FirstName = request.FirstName;
-                author.LastName = request.LastName;
-                author.PhoneNumber = request.PhoneNumber;
-                author.Country = request.Country;
-                author.Address = request.Address;
-                author.City = request.City;
+            var author = await _authorRepository.GetByIdAsync(request.AuthorId);
 
-                await _repositoryAsync.UpdateAsync(author);
-                return new Response<int>(author.AuthorId);
-            }
+            if (author is null) throw new KeyNotFoundException("No se encuentra registro");
+
+            author = _mapper.Map<Author>(request);
+            await _authorRepository.UpdateAsync(request.AuthorId, author);
+
+            return new Response<int>(request.AuthorId);
         }
     }
 }

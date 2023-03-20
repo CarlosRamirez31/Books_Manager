@@ -1,6 +1,7 @@
 ﻿using Application.Interfaces;
 using Application.Wrappers;
 using AutoMapper;
+using BooksManager.Core.Application.Interfaces;
 using Domain.Entities;
 using MediatR;
 
@@ -18,19 +19,19 @@ namespace Application.Feautres.Authors.Commands.CreateAuthorCommand
 
     public class CreateAuthorCommandHandler : IRequestHandler<CreateAuthorCommand, Response<int>>
     {
-        private readonly IRepositoryAsync<Author> _repositoryAsync;
+        private readonly IAuthorRepository _authorRepository;
         private readonly IMapper _mapper;
 
-        public CreateAuthorCommandHandler(IRepositoryAsync<Author> repositoryAsync, IMapper mapper)
+        public CreateAuthorCommandHandler(IAuthorRepository authorRepository, IMapper mapper)
         {
-            _repositoryAsync = repositoryAsync;
+            _authorRepository = authorRepository;
             _mapper = mapper;
         }
 
         public async Task<Response<int>> Handle(CreateAuthorCommand request, CancellationToken cancellationToken)
         {
             var author = _mapper.Map<Author>(request);
-            var data = await _repositoryAsync.AddAsync(author);
+            var data = await _authorRepository.AddAsync(author);
 
             return new Response<int>(data.AuthorId);
         }
