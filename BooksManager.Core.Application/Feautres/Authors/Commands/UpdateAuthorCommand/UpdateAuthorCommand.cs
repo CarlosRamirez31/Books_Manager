@@ -35,7 +35,7 @@ namespace Application.Feautres.Authors.Commands.UpdateAuthorCommand
 
             if (author is null) throw new KeyNotFoundException("No se encuentra registro");
 
-            author = _mapper.Map<Author>(request);
+            _mapper.Map(request, author);
             await _authorRepository.UpdateAsync(request.AuthorId, author);
 
             return new Response<int>(request.AuthorId);

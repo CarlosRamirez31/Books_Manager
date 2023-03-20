@@ -1,13 +1,32 @@
-using Api;
+using Api.Extensions;
+using Application;
+using Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var startup = new Startup(builder.Configuration);
+var Configuration = builder.Configuration;
 
-startup.ConfigureServices(builder.Services);
+builder.Services.AddApplicationExtensions();
+builder.Services.AddPersistenceExtensions(Configuration);
+builder.Services.AddControllers();
+builder.Services.AddVersioningExtension();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-startup.Configure(app, app.Environment);
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.UseErrorHandlerMiddleware();
+
+app.MapControllers();
 
 app.Run();
