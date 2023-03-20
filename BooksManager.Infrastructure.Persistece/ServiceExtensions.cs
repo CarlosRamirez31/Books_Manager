@@ -5,6 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.Context;
 using Persistence.Repository;
+using WatchDog;
+using WatchDog.src.Enums;
 
 namespace Persistence
 {
@@ -21,8 +23,15 @@ namespace Persistence
                         x => x.MigrationsAssembly(assembly));
             });
 
+            services.AddWatchDogServices(options =>
+            {
+                options.IsAutoClear = true;
+                options.ClearTimeSchedule = WatchDogAutoClearScheduleEnum.Daily;
+            });
+
             services.AddTransient(typeof(IGeneryRepository<>), typeof(GeneryRepository<>));
             services.AddTransient<IAuthorRepository, AuthorRepository>();
+            
 
             return services;
         }

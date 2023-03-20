@@ -1,6 +1,7 @@
 using Api.Extensions;
 using Application;
 using Persistence;
+using WatchDog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseWatchDogExceptionLogger();
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
@@ -28,5 +31,11 @@ app.UseAuthorization();
 app.UseErrorHandlerMiddleware();
 
 app.MapControllers();
+
+app.UseWatchDog(options =>
+{
+    options.WatchPageUsername = "admin";
+    options.WatchPagePassword= "admin";
+});
 
 app.Run();
