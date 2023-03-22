@@ -12,10 +12,10 @@
     <PackageReference Include="FluentValidation" Version="11.5.1" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.5.1" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
+    <PackageReference Include="WatchDog.NET" Version="1.4.6" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Feautres\Authors\Queries\GetAllAuthor\" />
     <Folder Include="Filters\" />
   </ItemGroup>
 

@@ -1,7 +1,9 @@
 ﻿using Application.Feautres.Authors.Commands.CreateAuthorCommand;
 using Application.Feautres.Authors.Commands.DeleteAuthorCoomand;
 using Application.Feautres.Authors.Commands.UpdateAuthorCommand;
+using BooksManager.Core.Application.Feautres.Authors.Queries.GetAllAuthor;
 using BooksManager.Core.Application.Feautres.Authors.Queries.GetAuthorById;
+using BooksManager.Core.Application.Parameters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers.v1
@@ -9,6 +11,12 @@ namespace Api.Controllers.v1
     [ApiVersion("1.0")]
     public class AuthorController : BaseApiController
     {
+        [HttpGet]
+        public async Task<ActionResult> GetAll([FromQuery] GetAllAuthorQuery query)
+        {
+            return Ok(await Mediator.Send(query));
+        }
+
         [HttpGet("{id}")]
         public async Task<ActionResult> GetById(int id)
         {

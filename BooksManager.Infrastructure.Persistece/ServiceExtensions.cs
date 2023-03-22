@@ -23,16 +23,9 @@ namespace Persistence
                         x => x.MigrationsAssembly(assembly));
             });
 
-            services.AddWatchDogServices(options =>
-            {
-                options.IsAutoClear = true;
-                options.ClearTimeSchedule = WatchDogAutoClearScheduleEnum.Daily;
-            });
-
             services.AddTransient(typeof(IGeneryRepository<>), typeof(GeneryRepository<>));
             services.AddTransient<IAuthorRepository, AuthorRepository>();
             
-
             return services;
         }
     }

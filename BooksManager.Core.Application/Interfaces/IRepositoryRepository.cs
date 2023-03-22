@@ -1,4 +1,6 @@
-﻿
+﻿using BooksManager.Core.Application.Parameters;
+using System.Linq.Expressions;
+
 namespace Application.Interfaces
 {
     public interface IGeneryRepository<T>  
@@ -8,5 +10,8 @@ namespace Application.Interfaces
         Task<T> AddAsync(T entity);
         Task UpdateAsync(int id, T entity);
         Task DeleteAsync(T entity);
+        IQueryable<T> GetEntityQuery(Expression<Func<T, bool>>? filter);
+        IQueryable<TD> Ordering<TD>(PaginationRequest filter, IQueryable<TD> queryable, bool pagination = false)
+            where TD : class;
     }
 }

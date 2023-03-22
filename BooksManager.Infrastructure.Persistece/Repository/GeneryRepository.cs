@@ -1,6 +1,10 @@
 ﻿using Application.Interfaces;
+using BooksManager.Core.Application.Helpers;
+using BooksManager.Core.Application.Parameters;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Context;
+using System.Linq.Dynamic.Core;
+using System.Linq.Expressions;
 
 namespace Persistence.Repository
 {
@@ -40,6 +44,26 @@ namespace Persistence.Repository
         {
             _context.Set<T>().Remove(entity);
             await _context.SaveChangesAsync();
+        }
+
+        public IQueryable<T> GetEntityQuery(Expression<Func<T, bool>>? filter)
+        {
+            IQueryable<T> query = _context.Set<T>();
+
+            if (filter is not null) query = query.Where(filter);
+
+            return query;
+        }
+
+        public IQueryable<TD> Ordering<TD>(PaginationRequest request, IQueryable<TD> queryable, bool pagination = false)
+            where TD : class
+        {
+            IQueryable<TD> queryDto = (request.Order == "desc") ? queryable.OrderBy($"{request.Sort} descending") :
+                queryable.OrderBy($"{request.Sort} ascending");
+
+            if (!pagination) queryDto = queryDto.Paginte(request);
+
+            return queryDto;
         }
     }
 }
