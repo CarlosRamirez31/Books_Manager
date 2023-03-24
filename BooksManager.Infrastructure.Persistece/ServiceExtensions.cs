@@ -5,8 +5,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.Context;
 using Persistence.Repository;
-using WatchDog;
-using WatchDog.src.Enums;
 
 namespace Persistence
 {

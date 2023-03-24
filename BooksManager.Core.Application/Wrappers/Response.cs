@@ -9,7 +9,7 @@
 
         public Response() { }
 
-        public Response(T data, string message = null)
+        public Response(T data, string? message = null)
         {
             IsSuccess = true;
             Data = data;

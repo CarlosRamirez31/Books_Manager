@@ -61,7 +61,7 @@ namespace Persistence.Repository
             IQueryable<TD> queryDto = (request.Order == "desc") ? queryable.OrderBy($"{request.Sort} descending") :
                 queryable.OrderBy($"{request.Sort} ascending");
 
-            if (!pagination) queryDto = queryDto.Paginte(request);
+            if (!pagination) queryDto = queryDto.Paginate(request);
 
             return queryDto;
         }

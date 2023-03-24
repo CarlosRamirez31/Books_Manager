@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksManager.Infrastructure
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksManager.Presentation.Api", "BooksManager.Presentation.Api\BooksManager.Presentation.Api.csproj", "{84AE0BC3-8F36-4DF5-BD03-8EB2B74C0CC7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooksManager.Infrastructure.Identity", "BooksManager.Infrastructure.Identity\BooksManager.Infrastructure.Identity.csproj", "{B70CC7BD-BF81-4305-9ABD-ECCD4B1DD5C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{84AE0BC3-8F36-4DF5-BD03-8EB2B74C0CC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84AE0BC3-8F36-4DF5-BD03-8EB2B74C0CC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84AE0BC3-8F36-4DF5-BD03-8EB2B74C0CC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B70CC7BD-BF81-4305-9ABD-ECCD4B1DD5C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B70CC7BD-BF81-4305-9ABD-ECCD4B1DD5C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B70CC7BD-BF81-4305-9ABD-ECCD4B1DD5C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B70CC7BD-BF81-4305-9ABD-ECCD4B1DD5C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{265D2B9A-468B-4D71-A07F-8FF3426223F5} = {5211A69C-5087-4C93-A390-D326BDA6D092}
 		{CE2645D2-F71E-4EB6-883C-F9B17FE76CF5} = {5211A69C-5087-4C93-A390-D326BDA6D092}
 		{84AE0BC3-8F36-4DF5-BD03-8EB2B74C0CC7} = {2A4E3BB0-8F47-4ACC-B11B-EED05EE7571B}
+		{B70CC7BD-BF81-4305-9ABD-ECCD4B1DD5C0} = {5211A69C-5087-4C93-A390-D326BDA6D092}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {44814E76-5743-44CD-8648-062D7BEB3292}
