@@ -1,5 +1,5 @@
-﻿using Application.Interfaces;
-using BooksManager.Core.Application.Helpers;
+﻿using BooksManager.Core.Application.Helpers;
+using BooksManager.Core.Application.Interfaces.Repository;
 using BooksManager.Core.Application.Parameters;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Context;

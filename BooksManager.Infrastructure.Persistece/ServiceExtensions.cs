@@ -1,5 +1,4 @@
-﻿using Application.Interfaces;
-using BooksManager.Core.Application.Interfaces;
+﻿using BooksManager.Core.Application.Interfaces.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

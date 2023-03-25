@@ -1,4 +1,4 @@
-﻿using BooksManager.Core.Application.Interfaces;
+﻿using BooksManager.Core.Application.Interfaces.Repository;
 using BooksManager.Core.Application.Parameters;
 using BooksManager.Core.Application.Wrappers;
 using Domain.Entities;

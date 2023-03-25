@@ -1,9 +1,9 @@
 ﻿using BooksManager.Core.Application.Parameters;
 using System.Linq.Expressions;
 
-namespace Application.Interfaces
+namespace BooksManager.Core.Application.Interfaces.Repository
 {
-    public interface IGeneryRepository<T>  
+    public interface IGeneryRepository<T>
     {
         Task<IEnumerable<T>> GetAllAsync();
         Task<T> GetByIdAsync(int id);
