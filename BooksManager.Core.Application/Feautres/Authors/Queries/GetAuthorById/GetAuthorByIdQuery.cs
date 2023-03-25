@@ -1,7 +1,7 @@
 ﻿using Application.Wrappers;
 using AutoMapper;
 using BooksManager.Core.Application.Dtos;
-using BooksManager.Core.Application.Interfaces;
+using BooksManager.Core.Application.Interfaces.Repository;
 using MediatR;
 
 namespace BooksManager.Core.Application.Feautres.Authors.Queries.GetAuthorById

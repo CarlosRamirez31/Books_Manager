@@ -1,6 +1,6 @@
 ﻿using Application.Wrappers;
 using AutoMapper;
-using BooksManager.Core.Application.Interfaces;
+using BooksManager.Core.Application.Interfaces.Repository;
 using MediatR;
 
 namespace Application.Feautres.Authors.Commands.UpdateAuthorCommand

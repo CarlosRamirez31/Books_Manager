@@ -1,7 +1,7 @@
 ﻿using Application.Wrappers;
 using AutoMapper;
 using BooksManager.Core.Application.Dtos;
-using BooksManager.Core.Application.Interfaces;
+using BooksManager.Core.Application.Interfaces.Repository;
 using BooksManager.Core.Application.Parameters;
 using BooksManager.Core.Application.Wrappers;
 using MediatR;
@@ -12,7 +12,8 @@ namespace BooksManager.Core.Application.Feautres.Authors.Queries.GetAllAuthor
     {
     }
 
-    public class GetAllAuthorQueryHandler : IRequestHandler<GetAllAuthorQuery, Response<PageResponse<AuthorResponseDto>>>{
+    public class GetAllAuthorQueryHandler : IRequestHandler<GetAllAuthorQuery, Response<PageResponse<AuthorResponseDto>>>
+    {
         private readonly IAuthorRepository _authorRepository;
         private readonly IMapper _mapper;
 
