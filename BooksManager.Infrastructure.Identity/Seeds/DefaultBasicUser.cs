@@ -1,5 +1,5 @@
 ﻿using BooksManager.Core.Application.Enums;
-using BooksManager.Infrastructure.Identity.Models;
+using BooksManager.Infrastructure.Identity.Entities;
 using Microsoft.AspNetCore.Identity;
 
 namespace BooksManager.Infrastructure.Identity.Seeds
@@ -12,20 +12,21 @@ namespace BooksManager.Infrastructure.Identity.Seeds
             {
                 UserName = "UserBasic",
                 Email = "UserBasic@gmail.com",
-                FirstName = "Carlisto",
-                LastName = "Martinez",
+                FirstName = "Carlitos",
+                LastName = "Ramirez",
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = true
             };
 
+
             if(userManager.Users.All(u => u.Id != defaultUser.Id))
             {
                 var user = await userManager.FindByEmailAsync(defaultUser.Email);
-                if(user is null)
+                if(user == null)
                 {
-                    await userManager.CreateAsync(defaultUser, "Pa$$Word!!");
+                    await userManager.CreateAsync(defaultUser, "123Pa$$Word!");
                     await userManager.AddToRoleAsync(defaultUser, Roles.Basic.ToString());
-                } 
+                }
             }
         }
     }

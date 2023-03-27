@@ -1,5 +1,5 @@
 ﻿using BooksManager.Core.Application.Enums;
-using BooksManager.Infrastructure.Identity.Models;
+using BooksManager.Infrastructure.Identity.Entities;
 using Microsoft.AspNetCore.Identity;
 
 namespace BooksManager.Infrastructure.Identity.Seeds

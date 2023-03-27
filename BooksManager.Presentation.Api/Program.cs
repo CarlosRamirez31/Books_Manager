@@ -1,7 +1,7 @@
 using Api.Extensions;
 using Application;
 using BooksManager.Infrastructure.Identity;
-using BooksManager.Infrastructure.Identity.Models;
+using BooksManager.Infrastructure.Identity.Entities;
 using BooksManager.Infrastructure.Identity.Seeds;
 using Microsoft.AspNetCore.Identity;
 using Persistence;

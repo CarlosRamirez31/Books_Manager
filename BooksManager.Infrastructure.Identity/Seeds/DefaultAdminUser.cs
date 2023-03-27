@@ -1,5 +1,6 @@
 ﻿using BooksManager.Core.Application.Enums;
-using BooksManager.Infrastructure.Identity.Models;
+using BooksManager.Infrastructure.Identity.Entities;
+using DnsClient.Protocol;
 using Microsoft.AspNetCore.Identity;
 
 namespace BooksManager.Infrastructure.Identity.Seeds
@@ -18,16 +19,17 @@ namespace BooksManager.Infrastructure.Identity.Seeds
                 PhoneNumberConfirmed = true
             };
 
-            if(userManager.Users.All(u => u.Id != defaultUser.Id))
+            if (userManager.Users.All(u => u.Id != defaultUser.Id))
             {
                 var user = await userManager.FindByEmailAsync(defaultUser.Email);
-                if(user is null)
+                if(user == null)
                 {
-                    await userManager.CreateAsync(defaultUser, "Pa$$Word!!");
+                    await userManager.CreateAsync(defaultUser, "123Pa$$word!");
                     await userManager.AddToRoleAsync(defaultUser, Roles.Admin.ToString());
                     await userManager.AddToRoleAsync(defaultUser, Roles.Basic.ToString());
                 }
             }
+
         }
     }
 }

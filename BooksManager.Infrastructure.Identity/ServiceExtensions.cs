@@ -1,7 +1,9 @@
 ﻿using Application.Wrappers;
+using BooksManager.Core.Application.Interfaces.Service;
 using BooksManager.Core.Domain.Setting;
 using BooksManager.Infrastructure.Identity.Context;
-using BooksManager.Infrastructure.Identity.Models;
+using BooksManager.Infrastructure.Identity.Entities;
+using BooksManager.Infrastructure.Identity.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -28,6 +30,8 @@ namespace BooksManager.Infrastructure.Identity
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<IdentityContext>()
                 .AddDefaultTokenProviders();
+
+            services.AddTransient<IAccountService, AccountService>();
 
             services.Configure<JWTSettings>(configuration.GetSection("JWTSettings"));
 

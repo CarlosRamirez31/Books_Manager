@@ -4,9 +4,10 @@ using BooksManager.Core.Application.Dtos.Users;
 using BooksManager.Core.Application.Enums;
 using BooksManager.Core.Application.Interfaces.Service;
 using BooksManager.Core.Domain.Setting;
+using BooksManager.Infrastructure.Identity.Entities;
 using BooksManager.Infrastructure.Identity.Helper;
-using BooksManager.Infrastructure.Identity.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -22,22 +23,22 @@ namespace BooksManager.Infrastructure.Identity.Services
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly JWTSettings _jwtSettings;
 
-        public AccountService(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<ApplicationUser> signInManager, JWTSettings jwtSettings)
+        public AccountService(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<ApplicationUser> signInManager, IOptions<JWTSettings> jwtSettings)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _signInManager = signInManager;
-            _jwtSettings = jwtSettings;
+            _jwtSettings = jwtSettings.Value;
         }
 
         public async Task<Response<string>> RegisterAsync(RegisterRequest request, string origin)
         {
             var user = await _userManager.FindByNameAsync(request.UserName);
-            if (user is null)
+            if (user is not null)
                 throw new ApiException($"El nombre de usuario {request.UserName} ya ha sido registrado previamente");
 
             user = await _userManager.FindByEmailAsync(request.Email);
-            if (user is null)
+            if (user is not null)
                 throw new ApiException($"El correo electronico {request.Email} ya ha sido registrado previamente");
 
             user = new ApplicationUser
