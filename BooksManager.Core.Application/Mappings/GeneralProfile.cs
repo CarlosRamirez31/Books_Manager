@@ -1,7 +1,7 @@
 ﻿using Application.Feautres.Authors.Commands.CreateAuthorCommand;
 using Application.Feautres.Authors.Commands.UpdateAuthorCommand;
 using AutoMapper;
-using BooksManager.Core.Application.Dtos;
+using BooksManager.Core.Application.Dtos.Users;
 using BooksManager.Core.Application.Feautres.Authors.Queries.GetAllAuthor;
 using BooksManager.Core.Application.Parameters;
 using BooksManager.Core.Application.Wrappers;
