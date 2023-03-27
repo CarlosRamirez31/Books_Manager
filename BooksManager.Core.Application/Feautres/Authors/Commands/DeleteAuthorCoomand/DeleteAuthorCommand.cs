@@ -1,8 +1,5 @@
-﻿using Application.Exceptions;
-using Application.Interfaces;
-using Application.Wrappers;
+﻿using Application.Wrappers;
 using BooksManager.Core.Application.Interfaces.Repository;
-using Domain.Entities;
 using MediatR;
 
 namespace Application.Feautres.Authors.Commands.DeleteAuthorCoomand

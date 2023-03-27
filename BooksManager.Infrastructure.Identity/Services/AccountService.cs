@@ -64,7 +64,7 @@ namespace BooksManager.Infrastructure.Identity.Services
             if (user is null)
                 throw new ApiException($"No hay una cuenta registrada el email {request.Email}");
 
-            var result = await _signInManager.PasswordSignInAsync(user, request.Password, false, lockoutOnFailure: false);
+            var result = await _signInManager.PasswordSignInAsync(user, request.Password, isPersistent: false, lockoutOnFailure: false);
             if (!result.Succeeded)
                 throw new ApiException("Las credenciales de usuario no son validas");
 
