@@ -31,7 +31,10 @@ namespace BooksManager.Infrastructure.Identity
                 .AddEntityFrameworkStores<IdentityContext>()
                 .AddDefaultTokenProviders();
 
+
+            #region services
             services.AddTransient<IAccountService, AccountService>();
+            #endregion
 
             services.Configure<JWTSettings>(configuration.GetSection("JWTSettings"));
 

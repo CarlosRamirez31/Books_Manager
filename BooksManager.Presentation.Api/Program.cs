@@ -3,6 +3,7 @@ using Application;
 using BooksManager.Infrastructure.Identity;
 using BooksManager.Infrastructure.Identity.Entities;
 using BooksManager.Infrastructure.Identity.Seeds;
+using BooksManager.Infrastructure.Shared;
 using Microsoft.AspNetCore.Identity;
 using Persistence;
 using WatchDog;
@@ -14,6 +15,7 @@ var Configuration = builder.Configuration;
 builder.Services.AddApplicationExtensions();
 builder.Services.AddPersistenceExtensions(Configuration);
 builder.Services.AddIdentityInfrastructure(Configuration);
+builder.Services.AddSharedInfrastructure();
 builder.Services.AddControllers();
 builder.Services.AddVersioningExtension();
 builder.Services.AddEndpointsApiExplorer();
@@ -48,6 +50,8 @@ if (app.Environment.IsDevelopment())
 app.UseWatchDogExceptionLogger();
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

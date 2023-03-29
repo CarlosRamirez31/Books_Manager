@@ -8,11 +8,11 @@ using MediatR;
 
 namespace BooksManager.Core.Application.Feautres.Authors.Queries.GetAllAuthor
 {
-    public class GetAllAuthorQuery : FilterRequest, IRequest<Response<PageResponse<AuthorResponseDto>>>
+    public class GetFilterAuthorQuery : FilterRequest, IRequest<Response<PageResponse<AuthorResponseDto>>>
     {
     }
 
-    public class GetAllAuthorQueryHandler : IRequestHandler<GetAllAuthorQuery, Response<PageResponse<AuthorResponseDto>>>
+    public class GetAllAuthorQueryHandler : IRequestHandler<GetFilterAuthorQuery, Response<PageResponse<AuthorResponseDto>>>
     {
         private readonly IAuthorRepository _authorRepository;
         private readonly IMapper _mapper;
@@ -23,7 +23,7 @@ namespace BooksManager.Core.Application.Feautres.Authors.Queries.GetAllAuthor
             _mapper = mapper;
         }
 
-        public async Task<Response<PageResponse<AuthorResponseDto>>> Handle(GetAllAuthorQuery request, CancellationToken cancellationToken)
+        public async Task<Response<PageResponse<AuthorResponseDto>>> Handle(GetFilterAuthorQuery request, CancellationToken cancellationToken)
         {
             var author = await _authorRepository.ListProvider(request);
             var dto = _mapper.Map<PageResponse<AuthorResponseDto>>(author);

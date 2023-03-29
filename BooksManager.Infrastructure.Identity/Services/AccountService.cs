@@ -33,15 +33,15 @@ namespace BooksManager.Infrastructure.Identity.Services
 
         public async Task<Response<string>> RegisterAsync(RegisterRequest request, string origin)
         {
-            var user = await _userManager.FindByNameAsync(request.UserName);
-            if (user is not null)
+            var userName = await _userManager.FindByNameAsync(request.UserName);
+            if (userName is not null)
                 throw new ApiException($"El nombre de usuario {request.UserName} ya ha sido registrado previamente");
 
-            user = await _userManager.FindByEmailAsync(request.Email);
-            if (user is not null)
+            var email = await _userManager.FindByEmailAsync(request.Email);
+            if (email is not null)
                 throw new ApiException($"El correo electronico {request.Email} ya ha sido registrado previamente");
 
-            user = new ApplicationUser
+            var user = new ApplicationUser
             {
                 Email = request.Email,
                 FirstName = request.FirstName,
@@ -65,7 +65,7 @@ namespace BooksManager.Infrastructure.Identity.Services
             if (user is null)
                 throw new ApiException($"No hay una cuenta registrada el email {request.Email}");
 
-            var result = await _signInManager.PasswordSignInAsync(user, request.Password, isPersistent: false, lockoutOnFailure: false);
+            var result = await _signInManager.PasswordSignInAsync(user.UserName, request.Password, false, false);
             if (!result.Succeeded)
                 throw new ApiException("Las credenciales de usuario no son validas");
 

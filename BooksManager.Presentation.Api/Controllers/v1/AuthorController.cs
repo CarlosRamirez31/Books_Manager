@@ -2,8 +2,9 @@
 using Application.Feautres.Authors.Commands.DeleteAuthorCoomand;
 using Application.Feautres.Authors.Commands.UpdateAuthorCommand;
 using BooksManager.Core.Application.Feautres.Authors.Queries.GetAllAuthor;
+using BooksManager.Core.Application.Feautres.Authors.Queries.GetAllAuthorCommand;
 using BooksManager.Core.Application.Feautres.Authors.Queries.GetAuthorById;
-using BooksManager.Core.Application.Parameters;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers.v1
@@ -11,10 +12,16 @@ namespace Api.Controllers.v1
     [ApiVersion("1.0")]
     public class AuthorController : BaseApiController
     {
-        [HttpGet]
-        public async Task<ActionResult> GetAll([FromQuery] GetAllAuthorQuery query)
+        [HttpGet()]
+        public async Task<ActionResult> GetFilter([FromQuery] GetFilterAuthorQuery query)
         {
             return Ok(await Mediator.Send(query));
+        }
+
+        [HttpGet("All")]
+        public async Task<ActionResult> GetAll()
+        {
+            return Ok(await Mediator.Send(new GetAllAuthorCommand()));
         }
 
         [HttpGet("{id}")]
@@ -24,12 +31,14 @@ namespace Api.Controllers.v1
         }
 
         [HttpPost("Register")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Register(CreateAuthorCommand command)
         {
             return Ok(await Mediator.Send(command));
         }
 
         [HttpPut("Update")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Update(UpdateAuthorCommand command)
         {
             return Ok(await Mediator.Send(command));
@@ -37,6 +46,7 @@ namespace Api.Controllers.v1
 
 
         [HttpDelete("Delete/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Delete(int id)
         {
             return Ok(await Mediator.Send(new DeleteAuthorCommand() { AuthorId = id }));

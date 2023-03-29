@@ -13,7 +13,7 @@ namespace BooksManager.Presentation.Api.Controllers
         [HttpPost("Authenticate")]
         public async Task<ActionResult> AuthenticateAsync(AuthenticationRequest request)
         {
-            return Ok(Mediator.Send(new AuthenticateCommand
+            return Ok(await Mediator.Send(new AuthenticateCommand
             {
                 Email = request.Email,
                 Password = request.Password,
@@ -24,7 +24,7 @@ namespace BooksManager.Presentation.Api.Controllers
         [HttpPost("Register")]
         public async Task<ActionResult> RegisterAsync(RegisterRequest request)
         {
-            return Ok(Mediator.Send(new RegisterCommand
+            return Ok(await Mediator.Send(new RegisterCommand
             {
                 FirstName = request.FirstName,
                 LastName = request.LastName,
