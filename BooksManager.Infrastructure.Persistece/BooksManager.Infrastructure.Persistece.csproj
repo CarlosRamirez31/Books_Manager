@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BooksManager.Core.Application\BooksManager.Core.Application.csproj" />
     <ProjectReference Include="..\BooksManager.Core.Domain\BooksManager.Core.Domain.csproj" />
+    <ProjectReference Include="..\BooksManager.Infrastructure.Identity\BooksManager.Infrastructure.Identity.csproj" />
   </ItemGroup>
 
 </Project>

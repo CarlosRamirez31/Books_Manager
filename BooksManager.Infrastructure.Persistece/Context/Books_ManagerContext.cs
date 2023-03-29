@@ -1,5 +1,10 @@
-﻿using Domain.Common;
+﻿using BooksManager.Core.Application.Dtos.Users;
+using BooksManager.Core.Application.Interfaces.Service;
+using BooksManager.Infrastructure.Identity.Entities;
+using Domain.Common;
 using Domain.Entities;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -7,10 +12,11 @@ namespace Persistence.Context
 {
     public partial class Books_ManagerContext : DbContext
     {
-
-        public Books_ManagerContext(DbContextOptions<Books_ManagerContext> options)
+        private readonly IContextAccessorWrapper _contextAccessorWrapper;
+        public Books_ManagerContext(DbContextOptions<Books_ManagerContext> options, IContextAccessorWrapper contextAccessorWrapper)
             : base(options)
         {
+            _contextAccessorWrapper = contextAccessorWrapper;
         }
 
         public virtual DbSet<Author> Authors { get; set; } = null!;
@@ -27,9 +33,11 @@ namespace Persistence.Context
                 {
                     case EntityState.Added:
                         entry.Entity.Created = DateTime.Now;
+                        entry.Entity.CreateBy = _contextAccessorWrapper.GetContextName();
                         break;
                     case EntityState.Modified:
                         entry.Entity.LastModified = DateTime.Now;
+                        entry.Entity.LastModifiedBy = _contextAccessorWrapper.GetContextName();
                         break;
                 }
             }

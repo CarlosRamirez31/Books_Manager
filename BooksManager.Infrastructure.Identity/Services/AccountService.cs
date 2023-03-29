@@ -19,14 +19,12 @@ namespace BooksManager.Infrastructure.Identity.Services
     public class AccountService : IAccountService
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly JWTSettings _jwtSettings;
 
-        public AccountService(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<ApplicationUser> signInManager, IOptions<JWTSettings> jwtSettings)
+        public AccountService(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IOptions<JWTSettings> jwtSettings)
         {
             _userManager = userManager;
-            _roleManager = roleManager;
             _signInManager = signInManager;
             _jwtSettings = jwtSettings.Value;
         }
