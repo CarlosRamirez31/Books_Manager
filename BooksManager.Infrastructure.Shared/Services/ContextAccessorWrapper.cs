@@ -1,4 +1,5 @@
 ﻿using BooksManager.Core.Application.Interfaces.Service;
+using Google.Protobuf.WellKnownTypes;
 using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 
@@ -15,7 +16,7 @@ namespace BooksManager.Infrastructure.Shared.Services
 
         public string GetContextName()
         {
-            return _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            return _httpContextAccessor.HttpContext!.User.FindFirst(ClaimTypes.NameIdentifier)!.Value;
         }
     }
 }
