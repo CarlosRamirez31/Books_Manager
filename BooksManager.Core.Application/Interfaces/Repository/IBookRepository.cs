@@ -4,7 +4,7 @@ using Domain.Entities;
 
 namespace BooksManager.Core.Application.Interfaces.Repository
 {
-    public interface IBookRepository
+    public interface IBookRepository : IGeneryRepository<Book>
     {
         public Task<PageResponse<Book>> FilterBook(FilterRequest filter);
     }

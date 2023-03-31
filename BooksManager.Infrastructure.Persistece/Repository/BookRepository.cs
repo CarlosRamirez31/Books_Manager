@@ -43,6 +43,7 @@ namespace BooksManager.Infrastructure.Persistece.Repository
 
             response.TotalRecords = await book.CountAsync();
             response.Items = await Ordering(filter, book, filter.Download.GetValueOrDefault()).ToListAsync();
+            return response;
         }
     }
 }

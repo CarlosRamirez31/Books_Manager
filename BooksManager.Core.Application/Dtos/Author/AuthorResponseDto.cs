@@ -1,4 +1,4 @@
-﻿namespace BooksManager.Core.Application.Dtos.Users
+﻿namespace BooksManager.Core.Application.Dtos.Author
 {
     public class AuthorResponseDto
     {

@@ -1,6 +1,6 @@
 ﻿using Application.Wrappers;
 using AutoMapper;
-using BooksManager.Core.Application.Dtos.Users;
+using BooksManager.Core.Application.Dtos.Author;
 using BooksManager.Core.Application.Interfaces.Repository;
 using MediatR;
 

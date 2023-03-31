@@ -1,7 +1,8 @@
 ﻿using Application.Feautres.Authors.Commands.CreateAuthorCommand;
 using Application.Feautres.Authors.Commands.UpdateAuthorCommand;
 using AutoMapper;
-using BooksManager.Core.Application.Dtos.Users;
+using BooksManager.Core.Application.Dtos.Author;
+using BooksManager.Core.Application.Dtos.Book;
 using BooksManager.Core.Application.Feautres.Authors.Queries.GetAllAuthor;
 using BooksManager.Core.Application.Parameters;
 using BooksManager.Core.Application.Wrappers;
@@ -20,6 +21,10 @@ namespace Application.Mappings
             CreateMap<PageResponse<Author>, PageResponse<AuthorResponseDto>>();
             CreateMap<CreateAuthorCommand, Author>();
             CreateMap<UpdateAuthorCommand, Author>();
+            #endregion
+
+            #region Book
+            CreateMap<Book, BookResponseDto>();
             #endregion
 
             #endregion

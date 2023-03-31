@@ -2,7 +2,6 @@
 using Application.Feautres.Authors.Commands.DeleteAuthorCoomand;
 using Application.Feautres.Authors.Commands.UpdateAuthorCommand;
 using BooksManager.Core.Application.Feautres.Authors.Queries.GetAllAuthor;
-using BooksManager.Core.Application.Feautres.Authors.Queries.GetAllAuthorCommand;
 using BooksManager.Core.Application.Feautres.Authors.Queries.GetAuthorById;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -21,7 +20,7 @@ namespace Api.Controllers.v1
         [HttpGet("All")]
         public async Task<ActionResult> GetAll()
         {
-            return Ok(await Mediator.Send(new GetAllAuthorCommand()));
+            return Ok(await Mediator.Send(new GetAllAuthorQuery()));
         }
 
         [HttpGet("{id}")]

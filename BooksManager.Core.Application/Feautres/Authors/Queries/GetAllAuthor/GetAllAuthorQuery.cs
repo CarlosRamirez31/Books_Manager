@@ -1,18 +1,18 @@
 ﻿using Application.Wrappers;
 using AutoMapper;
-using BooksManager.Core.Application.Dtos.Users;
+using BooksManager.Core.Application.Dtos.Author;
 using BooksManager.Core.Application.Interfaces.Repository;
 using MediatR;
 using MongoDB.Driver;
 using Ubiety.Dns.Core;
 
-namespace BooksManager.Core.Application.Feautres.Authors.Queries.GetAllAuthorCommand
+namespace BooksManager.Core.Application.Feautres.Authors.Queries.GetAllAuthor
 {
-    public class GetAllAuthorCommand : IRequest<Response<List<AuthorResponseDto>>>
+    public class GetAllAuthorQuery : IRequest<Response<List<AuthorResponseDto>>>
     {
     }
 
-    public class GetAllAuthorCommandHandler : IRequestHandler<GetAllAuthorCommand, Response<List<AuthorResponseDto>>>
+    public class GetAllAuthorCommandHandler : IRequestHandler<GetAllAuthorQuery, Response<List<AuthorResponseDto>>>
     {
         private readonly IAuthorRepository _authorRepository;
         private readonly IMapper _mapper;
@@ -23,7 +23,7 @@ namespace BooksManager.Core.Application.Feautres.Authors.Queries.GetAllAuthorCom
             _mapper = mapper;
         }
 
-        public async Task<Response<List<AuthorResponseDto>>> Handle(GetAllAuthorCommand request, CancellationToken cancellationToken)
+        public async Task<Response<List<AuthorResponseDto>>> Handle(GetAllAuthorQuery request, CancellationToken cancellationToken)
         {
             var author = await _authorRepository.GetAllAsync();
             var dto = _mapper.Map<List<AuthorResponseDto>>(author);
