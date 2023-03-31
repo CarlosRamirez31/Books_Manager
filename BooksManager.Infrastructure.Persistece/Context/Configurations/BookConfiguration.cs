@@ -13,8 +13,6 @@ namespace Persistence.Context.Configurations
     {
         public void Configure(EntityTypeBuilder<Book> builder)
         {
-            builder.Property(e => e.BookId).ValueGeneratedNever();
-
             builder.Property(e => e.BookDescription)
                 .HasMaxLength(250)
                 .IsUnicode(false);

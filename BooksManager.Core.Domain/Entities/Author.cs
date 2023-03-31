@@ -18,5 +18,6 @@ namespace Domain.Entities
         public string? City { get; set; }
 
         public virtual ICollection<Photograph> Photographs { get; set; }
+        public virtual ICollection<AuthorsBook> AuthorsBooks { get; set; }
     }
 }

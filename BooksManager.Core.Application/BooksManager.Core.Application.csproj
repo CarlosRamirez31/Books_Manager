@@ -26,7 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Feautres\Books\Commands\CreateBookCommand\" />
     <Folder Include="Feautres\Books\Commands\DeleteBookCommand\" />
     <Folder Include="Feautres\Books\Commands\UpdateBookCommand\" />
     <Folder Include="Feautres\Books\Queries\GetBookById\" />

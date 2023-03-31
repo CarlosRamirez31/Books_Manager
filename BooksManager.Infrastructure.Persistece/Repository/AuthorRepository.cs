@@ -1,10 +1,10 @@
-﻿using BooksManager.Core.Application.Interfaces.Repository;
+﻿using BooksManager.Core.Application.Feautres.Books.Commands.CreateBookCommand;
+using BooksManager.Core.Application.Interfaces.Repository;
 using BooksManager.Core.Application.Parameters;
 using BooksManager.Core.Application.Wrappers;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Context;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Persistence.Repository
 {
@@ -56,6 +56,14 @@ namespace Persistence.Repository
             response.Items = await Ordering(filter, author, filter.Download.GetValueOrDefault()).ToListAsync();
 
             return response;
+        }
+
+        public async Task<List<int>> GetIdsAuthorsAsync(CreateBookCommand command)
+        {
+            var author = GetEntityQuery(x => command.AuthorsIds!.Contains(x.AuthorId))
+                .Select(x => x.AuthorId);
+
+            return await author.ToListAsync();
         }
     }
 }

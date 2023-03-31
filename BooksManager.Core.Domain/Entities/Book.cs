@@ -1,4 +1,6 @@
 ﻿using Domain.Common;
+using System;
+using System.Collections.Generic;
 
 namespace Domain.Entities
 {
@@ -16,5 +18,6 @@ namespace Domain.Entities
         public DateTime PublicationDate { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<AuthorsBook> AuthorsBooks { get; set; }
     }
 }

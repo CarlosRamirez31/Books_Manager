@@ -8,19 +8,7 @@ namespace Persistence.Context.Configurations
     {
         public void Configure(EntityTypeBuilder<AuthorsBook> builder)
         {
-            builder.HasNoKey();
-
-            builder.HasOne(d => d.Author)
-                .WithMany()
-                .HasForeignKey(d => d.AuthorId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("PK_AuthorsBooks");
-
-            builder.HasOne(d => d.Book)
-                .WithMany()
-                .HasForeignKey(d => d.BookId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("PK_BooksAuthors");
+            builder.HasKey(x => new {x.AuthorId, x.BookId});
         }
     }
 }
