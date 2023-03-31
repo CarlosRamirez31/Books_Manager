@@ -24,6 +24,7 @@ namespace Application.Mappings
 
             #region Book
             CreateMap<Book, BookResponseDto>();
+            CreateMap<PageResponse<Book>, PageResponse<BookResponseDto>>();
             CreateMap<CreateBookCommand, Book>()
                 .ForMember(x => x.AuthorsBooks, opt => opt.MapFrom(AuthorsBookMap));
             #endregion

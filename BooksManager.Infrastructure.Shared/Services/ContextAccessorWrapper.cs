@@ -16,7 +16,13 @@ namespace BooksManager.Infrastructure.Shared.Services
 
         public string GetContextName()
         {
-            return _httpContextAccessor.HttpContext!.User.FindFirst(ClaimTypes.NameIdentifier)!.Value;
+            var userName = _httpContextAccessor.HttpContext.User
+                .FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (userName == null)
+                return "Unknown user";
+
+            return userName;
         }
     }
 }

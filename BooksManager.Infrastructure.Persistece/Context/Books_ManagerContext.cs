@@ -27,8 +27,7 @@ namespace Persistence.Context
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
-            var userName = _contextAccessorWrapper.GetContextName() == null ? "Unknown user" :
-                _contextAccessorWrapper.GetContextName();
+            var userName = _contextAccessorWrapper.GetContextName();
 
             foreach (var entry in ChangeTracker.Entries<AuditBaseEntity>())
             {

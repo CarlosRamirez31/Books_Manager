@@ -17,7 +17,7 @@ namespace BooksManager.Infrastructure.Persistece.Repository
             _context = context;
         }
 
-        public async Task<PageResponse<Book>> FilterBook(FilterRequest filter)
+        public async Task<PageResponse<Book>> ListBook(FilterRequest filter)
         {
             var response = new PageResponse<Book>();
             var book = _context.Set<Book>().AsQueryable();
@@ -41,8 +41,11 @@ namespace BooksManager.Infrastructure.Persistece.Repository
                 x.LastModified <= Convert.ToDateTime(filter.EndDate).AddDays(1));
             }
 
+            if (filter.Sort is null) filter.Sort = "BookId";
+
             response.TotalRecords = await book.CountAsync();
             response.Items = await Ordering(filter, book, filter.Download.GetValueOrDefault()).ToListAsync();
+ 
             return response;
         }
     }

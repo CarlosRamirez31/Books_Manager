@@ -6,6 +6,6 @@ namespace BooksManager.Core.Application.Interfaces.Repository
 {
     public interface IBookRepository : IGeneryRepository<Book>
     {
-        public Task<PageResponse<Book>> FilterBook(FilterRequest filter);
+        public Task<PageResponse<Book>> ListBook(FilterRequest filter);
     }
 }
