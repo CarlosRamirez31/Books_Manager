@@ -54,6 +54,7 @@ namespace Persistence.Repository
 
             response.TotalRecords = await author.CountAsync();
             response.Items = await Ordering(filter, author, filter.Download.GetValueOrDefault()).ToListAsync();
+
             return response;
         }
     }
