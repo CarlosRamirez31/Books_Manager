@@ -8,7 +8,7 @@ namespace BooksManager.Core.Application.Feautres.Books.Commands.CreateBookComman
 {
     public class CreateBookCommand : IRequest<Response<int>>
     {   
-        public string? Title { get; set; } = null!;
+        public string? Title { get; set; }
         public string? BookDescription { get; set; }
         public List<int>? AuthorsIds { get; set; }
         public int? Price { get; set; }

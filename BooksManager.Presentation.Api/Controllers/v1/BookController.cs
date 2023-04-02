@@ -1,6 +1,7 @@
 ﻿using Api.Controllers;
 using BooksManager.Core.Application.Feautres.Books.Commands.CreateBookCommand;
 using BooksManager.Core.Application.Feautres.Books.Commands.DeleteBookCommand;
+using BooksManager.Core.Application.Feautres.Books.Commands.UpdateBookCommand;
 using BooksManager.Core.Application.Feautres.Books.Queries.GetAllBook;
 using BooksManager.Core.Application.Feautres.Books.Queries.GetBookById;
 using BooksManager.Core.Application.Feautres.Books.Queries.GetFilterBook;
@@ -31,6 +32,12 @@ namespace BooksManager.Presentation.Api.Controllers.v1
 
         [HttpPost("Register")]
         public async Task<ActionResult> Register(CreateBookCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+        [HttpPut("Update")]
+        public async Task<ActionResult> Update(UpdateBookCommand command)
         {
             return Ok(await Mediator.Send(command));
         }
