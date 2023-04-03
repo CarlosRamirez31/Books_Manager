@@ -2,6 +2,7 @@
 using BooksManager.Core.Application.Feautres.Comments.Commands.CreateCommentCommand;
 using BooksManager.Core.Application.Feautres.Comments.Commands.DeleteCommentCommand;
 using BooksManager.Core.Application.Feautres.Comments.Commands.UpdateCommentCommand;
+using BooksManager.Core.Application.Feautres.Comments.Queries.GetCommentByBookId;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BooksManager.Presentation.Api.Controllers.v1
@@ -10,7 +11,16 @@ namespace BooksManager.Presentation.Api.Controllers.v1
     [Route("api/v{version:apiVersion}/Book/{bookId}/Comment")]
     public class CommentController : BaseApiController
     {
-        [HttpPost]
+        [HttpGet]
+        public async Task<ActionResult> GetByBook(int bookId, GetCommentByBookIdQuery query)
+        {
+            if (bookId != query.BookId)
+                return BadRequest("Los parametro bookId son diferente");
+
+            return Ok(await Mediator.Send(query));
+        }
+
+        [HttpPost("Register")]
         public async Task<ActionResult> Register(int bookId, CreateCommentCommand command)
         {
             if (bookId != command.BookId)
@@ -19,7 +29,7 @@ namespace BooksManager.Presentation.Api.Controllers.v1
             return Ok(await Mediator.Send(command));
         }
 
-        [HttpPut]
+        [HttpPut("Update")]
         public async Task<ActionResult> Update(int bookId, UpdateCommentCommand command)
         {
             if (bookId != command.BookId)
@@ -28,7 +38,7 @@ namespace BooksManager.Presentation.Api.Controllers.v1
             return Ok(await Mediator.Send(command));
         }
 
-        [HttpDelete]
+        [HttpDelete("Delete")]
         public async Task<ActionResult> Delete(int bookId, DeleteCommentCommand command)
         {
             if (bookId != command.BookId)

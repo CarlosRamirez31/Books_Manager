@@ -3,6 +3,7 @@ using Application.Feautres.Authors.Commands.UpdateAuthorCommand;
 using AutoMapper;
 using BooksManager.Core.Application.Dtos.Author;
 using BooksManager.Core.Application.Dtos.Book;
+using BooksManager.Core.Application.Dtos.Comment;
 using BooksManager.Core.Application.Feautres.Books.Commands.CreateBookCommand;
 using BooksManager.Core.Application.Feautres.Books.Commands.UpdateBookCommand;
 using BooksManager.Core.Application.Feautres.Comments.Commands.CreateCommentCommand;
@@ -39,6 +40,7 @@ namespace Application.Mappings
 
             CreateMap<CreateCommentCommand, Comment>();
             CreateMap<UpdateCommentCommand, Comment>();
+            CreateMap<Comment, CommentResponseDto>();
 
             #endregion
 
