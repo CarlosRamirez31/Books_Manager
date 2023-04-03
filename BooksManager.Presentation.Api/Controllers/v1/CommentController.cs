@@ -12,12 +12,10 @@ namespace BooksManager.Presentation.Api.Controllers.v1
     public class CommentController : BaseApiController
     {
         [HttpGet]
-        public async Task<ActionResult> GetByBook(int bookId, GetCommentByBookIdQuery query)
+        public async Task<ActionResult> GetByBook(int bookId)
         {
-            if (bookId != query.BookId)
-                return BadRequest("Los parametro bookId son diferente");
 
-            return Ok(await Mediator.Send(query));
+            return Ok(await Mediator.Send(new GetCommentByBookIdQuery() { BookId = bookId}));
         }
 
         [HttpPost("Register")]

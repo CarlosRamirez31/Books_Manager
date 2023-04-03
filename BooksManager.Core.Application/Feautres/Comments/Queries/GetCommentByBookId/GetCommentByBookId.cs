@@ -7,12 +7,12 @@ using Ubiety.Dns.Core;
 
 namespace BooksManager.Core.Application.Feautres.Comments.Queries.GetCommentByBookId
 {
-    public class GetCommentByBookIdQuery : IRequest<Response<CommentResponseDto>>
+    public class GetCommentByBookIdQuery : IRequest<Response<List<CommentResponseDto>>>
     {
         public int BookId { get; set; }
     }
 
-    public class GetCommentByBookIdQueryHandler : IRequestHandler<GetCommentByBookIdQuery, Response<CommentResponseDto>>
+    public class GetCommentByBookIdQueryHandler : IRequestHandler<GetCommentByBookIdQuery, Response<List<CommentResponseDto>>>
     {
         private readonly ICommentRepository _commentReposiory;
         private readonly IMapper _mapper;
@@ -23,13 +23,13 @@ namespace BooksManager.Core.Application.Feautres.Comments.Queries.GetCommentByBo
             _mapper = mapper;
         }
 
-        public async Task<Response<CommentResponseDto>> Handle(GetCommentByBookIdQuery request, CancellationToken cancellationToken)
+        public async Task<Response<List<CommentResponseDto>>> Handle(GetCommentByBookIdQuery request, CancellationToken cancellationToken)
         {
             var comments = await _commentReposiory.GetCommentsAsync(request.BookId);
 
-            var dto = _mapper.Map<CommentResponseDto>(comments);
+            var dto = _mapper.Map<List<CommentResponseDto>>(comments);
 
-            return new Response<CommentResponseDto>(dto);
+            return new Response<List<CommentResponseDto>>(dto);
         }
     }
 }
