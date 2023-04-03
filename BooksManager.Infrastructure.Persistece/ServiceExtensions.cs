@@ -24,6 +24,7 @@ namespace Persistence
             services.AddTransient(typeof(IGeneryRepository<>), typeof(GeneryRepository<>));
             services.AddTransient<IAuthorRepository, AuthorRepository>();
             services.AddTransient<IBookRepository, BookRepository>();
+            services.AddTransient<ICommentRepository, CommentRepository>();
             
             return services;
         }

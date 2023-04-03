@@ -5,6 +5,8 @@ using BooksManager.Core.Application.Dtos.Author;
 using BooksManager.Core.Application.Dtos.Book;
 using BooksManager.Core.Application.Feautres.Books.Commands.CreateBookCommand;
 using BooksManager.Core.Application.Feautres.Books.Commands.UpdateBookCommand;
+using BooksManager.Core.Application.Feautres.Comments.Commands.CreateCommentCommand;
+using BooksManager.Core.Application.Feautres.Comments.Commands.UpdateCommentCommand;
 using BooksManager.Core.Application.Wrappers;
 using Domain.Entities;
 
@@ -31,6 +33,13 @@ namespace Application.Mappings
 
             CreateMap<UpdateBookCommand, Book>()
                 .ForMember(x => x.AuthorsBooks, opt => opt.MapFrom(AuthorsBookMap));
+            #endregion
+
+            #region Comment
+
+            CreateMap<CreateCommentCommand, Comment>();
+            CreateMap<UpdateCommentCommand, Comment>();
+
             #endregion
 
             #endregion
