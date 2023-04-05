@@ -24,6 +24,7 @@ namespace Persistence.Context
         public virtual DbSet<Book> Books { get; set; } = null!;
         public virtual DbSet<Comment> Comments { get; set; } = null!;
         public virtual DbSet<Photograph> Photographs { get; set; } = null!;
+        public virtual DbSet<Biography> Biographies { get; set; } = null!;
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
