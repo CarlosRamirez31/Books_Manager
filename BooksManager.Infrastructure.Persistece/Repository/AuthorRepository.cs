@@ -1,4 +1,4 @@
-﻿using BooksManager.Core.Application.Feautres.Books.Commands.CreateBookCommand;
+﻿using BooksManager.Core.Application.Features.Books.Commands.CreateBookCommand;
 using BooksManager.Core.Application.Interfaces.Repository;
 using BooksManager.Core.Application.Parameters;
 using BooksManager.Core.Application.Wrappers;

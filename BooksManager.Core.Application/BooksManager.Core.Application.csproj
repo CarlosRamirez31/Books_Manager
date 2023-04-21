@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Feautres\Comments\Queries\GetComment\" />
+    <Folder Include="Features\Comments\Queries\GetComment\" />
   </ItemGroup>
 
 </Project>

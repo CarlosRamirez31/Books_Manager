@@ -1,8 +1,8 @@
-﻿using Application.Feautres.Authors.Commands.CreateAuthorCommand;
-using Application.Feautres.Authors.Commands.DeleteAuthorCoomand;
-using Application.Feautres.Authors.Commands.UpdateAuthorCommand;
-using BooksManager.Core.Application.Feautres.Authors.Queries.GetAllAuthor;
-using BooksManager.Core.Application.Feautres.Authors.Queries.GetAuthorById;
+﻿using Application.Features.Authors.Commands.CreateAuthorCommand;
+using Application.Features.Authors.Commands.DeleteAuthorCoomand;
+using Application.Features.Authors.Commands.UpdateAuthorCommand;
+using BooksManager.Core.Application.Features.Authors.Queries.GetAllAuthor;
+using BooksManager.Core.Application.Features.Authors.Queries.GetAuthorById;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

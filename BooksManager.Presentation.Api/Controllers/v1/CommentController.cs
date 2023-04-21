@@ -1,8 +1,8 @@
 ﻿using Api.Controllers;
-using BooksManager.Core.Application.Feautres.Comments.Commands.CreateCommentCommand;
-using BooksManager.Core.Application.Feautres.Comments.Commands.DeleteCommentCommand;
-using BooksManager.Core.Application.Feautres.Comments.Commands.UpdateCommentCommand;
-using BooksManager.Core.Application.Feautres.Comments.Queries.GetCommentByBookId;
+using BooksManager.Core.Application.Features.Comments.Commands.CreateCommentCommand;
+using BooksManager.Core.Application.Features.Comments.Commands.DeleteCommentCommand;
+using BooksManager.Core.Application.Features.Comments.Commands.UpdateCommentCommand;
+using BooksManager.Core.Application.Features.Comments.Queries.GetCommentByBookId;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BooksManager.Presentation.Api.Controllers.v1

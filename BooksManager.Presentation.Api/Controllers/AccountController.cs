@@ -1,7 +1,7 @@
 ﻿using Api.Controllers;
 using BooksManager.Core.Application.Dtos.Users;
-using BooksManager.Core.Application.Feautres.Users.Commands.AutenticateCommand;
-using BooksManager.Core.Application.Feautres.Users.Commands.RegisterCommand;
+using BooksManager.Core.Application.Features.Users.Commands.AutenticateCommand;
+using BooksManager.Core.Application.Features.Users.Commands.RegisterCommand;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BooksManager.Presentation.Api.Controllers

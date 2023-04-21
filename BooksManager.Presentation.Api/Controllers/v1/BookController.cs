@@ -1,10 +1,10 @@
 ﻿using Api.Controllers;
-using BooksManager.Core.Application.Feautres.Books.Commands.CreateBookCommand;
-using BooksManager.Core.Application.Feautres.Books.Commands.DeleteBookCommand;
-using BooksManager.Core.Application.Feautres.Books.Commands.UpdateBookCommand;
-using BooksManager.Core.Application.Feautres.Books.Queries.GetAllBook;
-using BooksManager.Core.Application.Feautres.Books.Queries.GetBookById;
-using BooksManager.Core.Application.Feautres.Books.Queries.GetFilterBook;
+using BooksManager.Core.Application.Features.Books.Commands.CreateBookCommand;
+using BooksManager.Core.Application.Features.Books.Commands.DeleteBookCommand;
+using BooksManager.Core.Application.Features.Books.Commands.UpdateBookCommand;
+using BooksManager.Core.Application.Features.Books.Queries.GetAllBook;
+using BooksManager.Core.Application.Features.Books.Queries.GetBookById;
+using BooksManager.Core.Application.Features.Books.Queries.GetFilterBook;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BooksManager.Presentation.Api.Controllers.v1

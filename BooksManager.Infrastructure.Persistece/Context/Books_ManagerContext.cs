@@ -1,5 +1,6 @@
 ﻿using BooksManager.Core.Application.Dtos.Users;
 using BooksManager.Core.Application.Interfaces.Service;
+using BooksManager.Core.Domain.Entities;
 using BooksManager.Infrastructure.Identity.Entities;
 using Domain.Common;
 using Domain.Entities;

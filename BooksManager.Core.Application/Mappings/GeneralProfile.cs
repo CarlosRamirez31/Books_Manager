@@ -1,13 +1,13 @@
-﻿using Application.Feautres.Authors.Commands.CreateAuthorCommand;
-using Application.Feautres.Authors.Commands.UpdateAuthorCommand;
+﻿using Application.Features.Authors.Commands.CreateAuthorCommand;
+using Application.Features.Authors.Commands.UpdateAuthorCommand;
 using AutoMapper;
 using BooksManager.Core.Application.Dtos.Author;
 using BooksManager.Core.Application.Dtos.Book;
 using BooksManager.Core.Application.Dtos.Comment;
-using BooksManager.Core.Application.Feautres.Books.Commands.CreateBookCommand;
-using BooksManager.Core.Application.Feautres.Books.Commands.UpdateBookCommand;
-using BooksManager.Core.Application.Feautres.Comments.Commands.CreateCommentCommand;
-using BooksManager.Core.Application.Feautres.Comments.Commands.UpdateCommentCommand;
+using BooksManager.Core.Application.Features.Books.Commands.CreateBookCommand;
+using BooksManager.Core.Application.Features.Books.Commands.UpdateBookCommand;
+using BooksManager.Core.Application.Features.Comments.Commands.CreateCommentCommand;
+using BooksManager.Core.Application.Features.Comments.Commands.UpdateCommentCommand;
 using BooksManager.Core.Application.Wrappers;
 using Domain.Entities;
 
