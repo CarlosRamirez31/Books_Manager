@@ -14,7 +14,6 @@ namespace BooksManager.Presentation.Api.Controllers.v1
         [HttpGet]
         public async Task<ActionResult> GetByBook(int bookId)
         {
-
             return Ok(await Mediator.Send(new GetCommentByBookIdQuery() { BookId = bookId}));
         }
 

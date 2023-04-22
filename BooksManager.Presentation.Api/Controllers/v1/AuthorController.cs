@@ -23,10 +23,10 @@ namespace Api.Controllers.v1
             return Ok(await Mediator.Send(new GetAllAuthorQuery()));
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult> GetById(int id)
+        [HttpGet("{authorId}")]
+        public async Task<ActionResult> GetById(int authorId)
         {
-            return Ok(await Mediator.Send(new GetAuthorByIdQuery() { AuthorId = id}));
+            return Ok(await Mediator.Send(new GetAuthorByIdQuery() { AuthorId = authorId}));
         }
 
         [HttpPost("Register")]
@@ -36,19 +36,22 @@ namespace Api.Controllers.v1
             return Ok(await Mediator.Send(command));
         }
 
-        [HttpPut("Update")]
+        [HttpPut("Update/{authorId}")]
         [Authorize(Roles = "Admin")]
-        public async Task<ActionResult> Update(UpdateAuthorCommand command)
+        public async Task<ActionResult> Update(int authorId, UpdateAuthorCommand command)
         {
+            if (authorId != command.AuthorId)
+                return BadRequest("Los parametros de authorId no coinciden");
+
             return Ok(await Mediator.Send(command));
         }
 
 
-        [HttpDelete("Delete/{id}")]
+        [HttpDelete("Delete/{authorId}")]
         [Authorize(Roles = "Admin")]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> Delete(int authorId)
         {
-            return Ok(await Mediator.Send(new DeleteAuthorCommand() { AuthorId = id }));
+            return Ok(await Mediator.Send(new DeleteAuthorCommand() { AuthorId = authorId }));
         }
     }
 }

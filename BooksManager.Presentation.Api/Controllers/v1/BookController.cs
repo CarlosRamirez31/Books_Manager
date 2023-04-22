@@ -5,6 +5,7 @@ using BooksManager.Core.Application.Features.Books.Commands.UpdateBookCommand;
 using BooksManager.Core.Application.Features.Books.Queries.GetAllBook;
 using BooksManager.Core.Application.Features.Books.Queries.GetBookById;
 using BooksManager.Core.Application.Features.Books.Queries.GetFilterBook;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BooksManager.Presentation.Api.Controllers.v1
@@ -24,28 +25,34 @@ namespace BooksManager.Presentation.Api.Controllers.v1
             return Ok(await Mediator.Send(new GetAllBookQuery()));
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult> GetById(int id)
+        [HttpGet("{bookId}")]
+        public async Task<ActionResult> GetById(int bookId)
         {
-            return Ok(await Mediator.Send(new GetBookByIdQuery() { BookId = id }));
+            return Ok(await Mediator.Send(new GetBookByIdQuery() { BookId = bookId }));
         }
 
         [HttpPost("Register")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Register(CreateBookCommand command)
         {
             return Ok(await Mediator.Send(command));
         }
 
-        [HttpPut("Update")]
-        public async Task<ActionResult> Update(UpdateBookCommand command)
+        [HttpPut("Update/{bookId}")]
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult> Update(int bookId, UpdateBookCommand command)
         {
+            if (bookId != command.BookId)
+                return BadRequest("Los parametros de bookId no coinciden");
+
             return Ok(await Mediator.Send(command));
         }
 
-        [HttpDelete("Delete/{id}")]
-        public async Task<ActionResult> Delete(int id)
+        [HttpDelete("Delete/{bookId}")]
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult> Delete(int bookId)
         {
-            return Ok(await Mediator.Send(new DeleteBookCommand() { BookId = id }));
+            return Ok(await Mediator.Send(new DeleteBookCommand() { BookId = bookId }));
         }
     }
 }
